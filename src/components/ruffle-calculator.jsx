@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { MATERIALS, SPI_BASE, FULLNESS_SETTINGS, SCREW_LABELS, RATIO_OPTIONS } from "../constants";
-import InputField from "./fields/textField";
+import InputFieldWrapper from "./fields/InputFieldWrapper";
+import SelectField from "./fields/SelectField";
+import TextField from "./fields/TextField";
 
 const deriveSettingsFromRatio = (ratio) => {
   if (ratio <= 1.75) return { leverSlot: 12, screwTurn: "loose",  fullnessLabel: "Loose",  spiDelta: +1 };
@@ -8,44 +10,8 @@ const deriveSettingsFromRatio = (ratio) => {
   return { leverSlot: 1,  screwTurn: "tight",  fullnessLabel: "Dense",  spiDelta: -1 };
 }
 
-function StyledSelect({ value, onChange, options, placeholder }) {
-  return (
-    
-  );
-}
 
-function StyledInput({ value, onChange, placeholder, unit }) {
-  return (
-    <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
-      <input
-        type="number"
-        value={value}
-        onChange={e => onChange(e.target.value)}
-        placeholder={placeholder}
-        min="0"
-        step="0.25"
-        style={{
-          width: "100%",
-          padding: "0.65rem 2.8rem 0.65rem 1rem",
-          background: "#fdf8f5",
-          border: "1.5px solid #d4b9a8",
-          borderRadius: "6px",
-          fontFamily: "'Lora', serif",
-          fontSize: "0.9rem",
-          color: "#3d2b1f",
-          boxSizing: "border-box",
-        }}
-      />
-      {unit && (
-        <span style={{
-          position: "absolute", right: "1rem",
-          fontSize: "0.75rem", color: "#b09988", fontStyle: "italic",
-          pointerEvents: "none",
-        }}>{unit}</span>
-      )}
-    </div>
-  );
-}
+
 
 function ToggleGroup({ options, value, onChange }) {
   return (
@@ -216,20 +182,20 @@ export default function RuffleCalculator() {
           boxShadow: "0 4px 30px rgba(139,111,94,0.1)",
           marginBottom: "1.5rem",
         }}>
-          <InputField label="Fabric Material">
-            <StyledSelect value={material} onChange={setMaterial} placeholder="Select a fabric..." options={MATERIALS} />
-          </InputField>
+          <InputFieldWrapper label="Fabric Material">
+            <SelectField value={material} onChange={setMaterial} placeholder="Select a fabric..." options={MATERIALS} />
+          </InputFieldWrapper>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-            <InputField label="Base Length" hint="The edge you're attaching to">
-              <StyledInput value={baseLength} onChange={setBaseLength} placeholder="21.5" unit="in" />
-            </InputField>
-            <InputField label="Ruffle Fabric" hint="Length before gathering">
-              <StyledInput value={ruffleLength} onChange={setRuffleLength} placeholder="50" unit="in" />
-            </InputField>
+            <InputFieldWrapper label="Base Length" hint="The edge you're attaching to">
+              <TextField value={baseLength} onChange={setBaseLength} placeholder="21.5" unit="in" />
+            </InputFieldWrapper>
+            <InputFieldWrapper label="Ruffle Fabric" hint="Length before gathering">
+              <TextField value={ruffleLength} onChange={setRuffleLength} placeholder="50" unit="in" />
+            </InputFieldWrapper>
           </div>
 
-          <InputField label="Calculation Mode">
+          <InputFieldWrapper label="Calculation Mode">
             <ToggleGroup
               value={ratioMode}
               onChange={v => { setRatioMode(v); setResults(null); }}
@@ -239,10 +205,10 @@ export default function RuffleCalculator() {
                 { value: "ratio",    label: "Ratio",   sub: "precise" },
               ]}
             />
-          </InputField>
+          </InputFieldWrapper>
 
           {ratioMode === "fullness" && (
-            <InputField label="Desired Fullness">
+            <InputFieldWrapper label="Desired Fullness">
               <ToggleGroup
                 value={fullness}
                 onChange={setFullness}
@@ -252,13 +218,13 @@ export default function RuffleCalculator() {
                   { value: "dense",  label: "Dense",  sub: "3×" },
                 ]}
               />
-            </InputField>
+            </InputFieldWrapper>
           )}
 
           {ratioMode === "ratio" && (
-            <InputField label="Ruffle Ratio">
-              <StyledSelect value={selectedRatio} onChange={setSelectedRatio} placeholder="Choose a ratio..." options={RATIO_OPTIONS} />
-            </InputField>
+            <InputFieldWrapper label="Ruffle Ratio">
+              <SelectField value={selectedRatio} onChange={setSelectedRatio} placeholder="Choose a ratio..." options={RATIO_OPTIONS} />
+            </InputFieldWrapper>
           )}
 
           <button
