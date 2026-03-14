@@ -1,7 +1,7 @@
   type TextFieldProps = {
-    value: string;
-    onChange: (value: string) => void;
-    placeholder?: string;
+    value: number;
+    onChange: (value: number) => void;
+    placeholder?: number;
     unit?: string;
   };
   
@@ -10,9 +10,13 @@ const TextField: React.FC<TextFieldProps> = ({ value, onChange, placeholder, uni
   <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
     <input
       type="number"
-      value={value}
-      onChange={e => onChange(e.target.value)}
-      placeholder={placeholder}
+      value={value === 0 ? "" : String(value)}
+      onChange={e => {
+        const raw = e.target.value;
+        const num = raw === "" ? 0 : Number(raw);
+        onChange(Number.isFinite(num) ? num : 0);
+      }}
+      placeholder={placeholder !== undefined ? String(placeholder) : undefined}
       min="0"
       step="0.25"
       style={{

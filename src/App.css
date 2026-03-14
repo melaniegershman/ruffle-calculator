@@ -1,42 +1,45 @@
-#root {
-  max-width: 1280px;
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #8b6f5e !important;
+  box-shadow: 0 0 0 3px rgba(139, 111, 94, 0.12);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  opacity: 0.4;
+}
+
+.appRoot {
+  min-height: 100vh;
+  background: #f5ede6;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, #ede0d8 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, #e8d5c8 0%, transparent 50%);
+  font-family: "Lora", serif;
+  padding: 2rem 1rem;
+}
+
+.appContainer {
+  max-width: 520px;
   margin: 0 auto;
-  padding: 2rem;
+}
+
+.appFooter {
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  margin-top: 1.5rem;
+  font-size: 0.7rem;
+  color: #c4a99a;
+  font-style: italic;
 }

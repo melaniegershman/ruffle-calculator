@@ -1,4 +1,6 @@
-const InputFieldWrapper = ({ label, hint, children }: { label: string, hint: string, children: React.ReactNode }) => {
+type InputFieldWrapperProps = { label: string; hint?: string | undefined; children: React.ReactNode }
+
+export const InputFieldWrapper: React.FC<InputFieldWrapperProps> = ({ label, hint, children }) => {
     return (
         <div style={{ marginBottom: "1.6rem" }}>
             <label style={{
@@ -15,5 +17,3 @@ const InputFieldWrapper = ({ label, hint, children }: { label: string, hint: str
         </div>
     )
 }
-
-export default InputFieldWrapper;

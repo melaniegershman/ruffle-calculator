@@ -1,0 +1,34 @@
+.group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button {
+  flex: 1;
+  padding: 0.6rem 0.5rem;
+  border: 1.5px solid #d4b9a8;
+  border-radius: 6px;
+  background: #fdf8f5;
+  color: #6b4f3f;
+  font-family: "Lora", serif;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.buttonActive {
+  border: 2px solid #8b6f5e;
+  background: #8b6f5e;
+  color: #fdf8f5;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.sub {
+  font-size: 0.68rem;
+  opacity: 0.8;
+  margin-top: 2px;
+}

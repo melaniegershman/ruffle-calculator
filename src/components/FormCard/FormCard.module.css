@@ -1,0 +1,35 @@
+.card {
+  background: rgba(255, 252, 249, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  border: 1px solid #e0cfc6;
+  padding: 2rem;
+  box-shadow: 0 4px 30px rgba(139, 111, 94, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.9rem;
+  background: #8b6f5e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+
+.submitButton:disabled {
+  background: #d4b9a8;
+  cursor: not-allowed;
+}
