@@ -1,7 +1,7 @@
 import { MATERIALS } from "../../constants";
 import { InputFieldWrapper } from "../fields/InputFieldWrapper";
-import SelectField from "../fields/SelectField";
-import TextField from "../fields/TextField";
+import { SelectField } from "../fields/SelectField";
+import { TextField } from "../fields/TextField";
 import ToggleGroup from "../ToggleGroup";
 import {
   FULLNESS_OPTIONS,

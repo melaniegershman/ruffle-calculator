@@ -1,0 +1,26 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 0.65rem 2.8rem 0.65rem 1rem;
+  background: #fdf8f5;
+  border: 1.5px solid #d4b9a8;
+  border-radius: 6px;
+  font-family: "Lora", serif;
+  font-size: 0.9rem;
+  color: #3d2b1f;
+  box-sizing: border-box;
+}
+
+.unit {
+  position: absolute;
+  right: 1rem;
+  font-size: 0.75rem;
+  color: #b09988;
+  font-style: italic;
+  pointer-events: none;
+}
