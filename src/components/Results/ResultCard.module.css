@@ -1,0 +1,57 @@
+.resultCard {
+  background: #fdf8f5;
+  border: 1.5px solid #d4b9a8;
+  border-radius: 10px;
+  padding: 1.1rem 1.2rem;
+  text-align: center;
+}
+
+.resultCard_accent {
+  background: #8b6f5e;
+  border-color: #8b6f5e;
+}
+
+.resultCard_wide {
+  grid-column: span 3;
+}
+
+.resultCardLabel {
+  font-family: "Playfair Display", serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8b6f5e;
+  margin-bottom: 0.4rem;
+}
+
+.resultCardLabel_accent {
+  color: #f0e4da;
+}
+
+.resultCardValue {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3d2b1f;
+  line-height: 1.2;
+}
+
+.resultCardValue_accent {
+  color: #fff;
+}
+
+.resultCardValue_wide {
+  font-size: 1.1rem;
+}
+
+.resultCardSub {
+  font-size: 0.72rem;
+  color: #b09988;
+  margin-top: 0.3rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.resultCardSub_accent {
+  color: #f0e4da;
+}

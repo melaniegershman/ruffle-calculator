@@ -1,0 +1,53 @@
+/* Results container */
+.container {
+  background: rgba(255, 252, 249, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  border: 1px solid #e0cfc6;
+  padding: 2rem;
+  box-shadow: 0 4px 30px rgba(139, 111, 94, 0.1);
+}
+
+.heading {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  color: #3d2b1f;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e0cfc6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.grid_twoCol {
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1.2rem;
+}
+
+.tips {
+  background: #fdf5f0;
+  border: 1px solid #e8d5c8;
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+}
+
+.tipsTitle {
+  font-family: "Playfair Display", serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8b6f5e;
+  margin-bottom: 0.6rem;
+}
+
+.tipsList {
+  padding-left: 1.1rem;
+  color: #6b4f3f;
+  font-size: 0.82rem;
+  line-height: 1.8;
+}

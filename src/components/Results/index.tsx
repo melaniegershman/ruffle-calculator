@@ -1,107 +1,22 @@
 import { MATERIALS } from "../../constants.ts";
-
-type ResultCardProps = {
-  label: string;
-  value: string | number;
-  sub?: string;
-  accent?: boolean;
-  wide?: boolean;
-};
-
-function ResultCard({ label, value, sub, accent, wide }: ResultCardProps) {
-  return (
-    <div
-      style={{
-        background: accent ? "#8b6f5e" : "#fdf8f5",
-        border: `1.5px solid ${accent ? "#8b6f5e" : "#d4b9a8"}`,
-        borderRadius: "10px",
-        padding: "1.1rem 1.2rem",
-        textAlign: "center",
-        gridColumn: wide ? "span 3" : undefined,
-      }}
-    >
-      <div
-        style={{
-          fontFamily: "'Playfair Display', serif",
-          fontSize: "0.68rem",
-          letterSpacing: "0.1em",
-          textTransform: "uppercase",
-          color: accent ? "#f0e4da" : "#8b6f5e",
-          marginBottom: "0.4rem",
-        }}
-      >
-        {label}
-      </div>
-      <div
-        style={{
-          fontFamily: "'Playfair Display', serif",
-          fontSize: wide ? "1.1rem" : "1.5rem",
-          fontWeight: "700",
-          color: accent ? "#fff" : "#3d2b1f",
-          lineHeight: 1.2,
-        }}
-      >
-        {value}
-      </div>
-      {sub && (
-        <div
-          style={{
-            fontSize: "0.72rem",
-            color: accent ? "#f0e4da" : "#b09988",
-            marginTop: "0.3rem",
-            fontStyle: "italic",
-            lineHeight: 1.4,
-          }}
-        >
-          {sub}
-        </div>
-      )}
-    </div>
-  );
-}
+import ResultCard from "./ResultCard";
+import styles from "./Results.module.css";
 
 type ResultsProps = {
   results: any;
   material: string;
 };
 
-export default function Results({ results, material }: ResultsProps) {
+const Results = ({ results, material }: ResultsProps) => {
   if (!results) return null;
 
   const materialLabel = MATERIALS.find((m) => m.value === material)?.label;
 
   return (
-    <div
-      style={{
-        background: "rgba(255,252,249,0.85)",
-        backdropFilter: "blur(8px)",
-        borderRadius: "16px",
-        border: "1px solid #e0cfc6",
-        padding: "2rem",
-        boxShadow: "0 4px 30px rgba(139,111,94,0.1)",
-      }}
-    >
-      <h2
-        style={{
-          fontFamily: "'Playfair Display', serif",
-          fontSize: "1.1rem",
-          color: "#3d2b1f",
-          marginBottom: "1.2rem",
-          paddingBottom: "0.75rem",
-          borderBottom: "1px solid #e0cfc6",
-        }}
-      >
-        Your Settings
-      </h2>
+    <div className={styles.container}>
+      <h2 className={styles.heading}>Your Settings</h2>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gap: "0.75rem",
-          marginBottom: "0.75rem",
-        }}
-      >
+      <div className={styles.grid}>
         <ResultCard
           label="Lever Slot"
           value={results.leverSlot}
@@ -120,14 +35,7 @@ export default function Results({ results, material }: ResultsProps) {
         />
       </div>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gap: "0.75rem",
-          marginBottom: "0.75rem",
-        }}
-      >
+      <div className={styles.grid}>
         <ResultCard
           label="Adjusting Screw"
           value={
@@ -139,14 +47,7 @@ export default function Results({ results, material }: ResultsProps) {
         />
       </div>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "0.75rem",
-          marginBottom: "1.2rem",
-        }}
-      >
+      <div className={`${styles.grid} ${styles.grid_twoCol}`}>
         <ResultCard
           label="Fabric Reduced"
           value={`${results.gatherPercent}%`}
@@ -166,34 +67,9 @@ export default function Results({ results, material }: ResultsProps) {
         />
       </div>
 
-      <div
-        style={{
-          background: "#fdf5f0",
-          border: "1px solid #e8d5c8",
-          borderRadius: "8px",
-          padding: "1rem 1.1rem",
-        }}
-      >
-        <div
-          style={{
-            fontFamily: "'Playfair Display', serif",
-            fontSize: "0.72rem",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            color: "#8b6f5e",
-            marginBottom: "0.6rem",
-          }}
-        >
-          Tips for {materialLabel}
-        </div>
-        <ul
-          style={{
-            paddingLeft: "1.1rem",
-            color: "#6b4f3f",
-            fontSize: "0.82rem",
-            lineHeight: 1.8,
-          }}
-        >
+      <div className={styles.tips}>
+        <div className={styles.tipsTitle}>Tips for {materialLabel}</div>
+        <ul className={styles.tipsList}>
           <li>
             Test on a 6–8" scrap first — expect ~
             <strong>
@@ -245,5 +121,7 @@ export default function Results({ results, material }: ResultsProps) {
       </div>
     </div>
   );
-}
+};
+
+export default Results;
 
