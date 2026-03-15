@@ -83,6 +83,7 @@ const Results = ({ results, material }: ResultsProps) => {
             <strong>loosen</strong> for less — use it to fine-tune after your
             test
           </li>
+          <li>Rembember to disengage the adjusting finger for gathers, and to engage it for pleats.</li>
           <li>
             <strong>Lower SPI</strong> (longer stitch) adds fullness;{" "}
             <strong>higher SPI</strong> (shorter stitch) reduces it — adjust ±1
