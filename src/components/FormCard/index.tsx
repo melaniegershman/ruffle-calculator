@@ -58,7 +58,7 @@ const FormCard: React.FC<FormCardProps> = ({
         <TextField
           value={baseLength}
           onChange={setBaseLength}
-          placeholder={21.5}
+          placeholder={0}
           unit="in"
         />
       </InputFieldWrapper>
@@ -66,7 +66,7 @@ const FormCard: React.FC<FormCardProps> = ({
         <TextField
           value={ruffleLength}
           onChange={setRuffleLength}
-          placeholder={50}
+          placeholder={0}
           unit="in"
         />
       </InputFieldWrapper>

@@ -16,6 +16,10 @@
   box-sizing: border-box;
 }
 
+.input::placeholder {
+  color: #b0b0b0;
+}
+
 .unit {
   position: absolute;
   right: 1rem;
