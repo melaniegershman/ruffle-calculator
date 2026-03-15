@@ -22,8 +22,8 @@ type ResultsState = {
 } | null;
 
 const deriveSettingsFromRatio = (ratio: number) => {
-  if (ratio <= 1.75) return { leverSlot: 12, screwTurn: "loose",  fullnessLabel: "Loose",  spiDelta: +1 };
-  if (ratio <= 2.5)  return { leverSlot: 6,  screwTurn: "medium", fullnessLabel: "Medium", spiDelta:  0 };
+  if (ratio <= 1.25) return { leverSlot: 12, screwTurn: "loose",  fullnessLabel: "Loose",  spiDelta: +1 };
+  if (ratio <= 1.75)  return { leverSlot: 6,  screwTurn: "medium", fullnessLabel: "Medium", spiDelta:  0 };
   return { leverSlot: 1,  screwTurn: "tight",  fullnessLabel: "Dense",  spiDelta: -1 };
 }
 
